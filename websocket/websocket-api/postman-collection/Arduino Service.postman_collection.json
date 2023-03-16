@@ -1,0 +1,94 @@
+{
+  "info": {
+    "_postman_id": "5c4eddc5-f94f-49a3-9cf1-a8a0858d5bbf",
+    "name": "Arduino Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "24888308"
+  },
+  "item": [
+    {
+      "name": "Authorization",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"arduino@gmail.com\",\n    \"password\": \"123456\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/api/authorization",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "authorization"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Change Lights status",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIkMmEkMDUkQ2dNa0ZjUnBsb094Sm9EZGNsYmNVdUI1N1FJTUlBZnJ1bU9MOWhjQWFwLldUc1lRWnpacC4iLCJleHAiOjE2ODYzNDk5NzcsImlhdCI6MTY3ODU3Mzk3N30.ATraYQ9WPu8j_FgTW99s4uirpp_obisejd7DEkTboKOmlRp-EERc4ApTE8zg4qp0_8-tRUwm2oKe6jCobSEl7Q",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/lights/turn/on?lightId=dafff6d2-5253-43d4-9e3e-49bf998c4e86",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "lights",
+            "turn",
+            "on"
+          ],
+          "query": [
+            {
+              "key": "lightId",
+              "value": "dafff6d2-5253-43d4-9e3e-49bf998c4e86"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

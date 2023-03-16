@@ -1,0 +1,26 @@
+name: i18n_app
+description: I18n App
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.4 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  injectable: ^1.5.3
+  get_it: ^7.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.1
+  injectable_generator:
+  build_runner:
+  i18n_json:
+    git: https://github.com/gnudles/dart_i18n_generator

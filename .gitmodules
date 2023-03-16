@@ -1,0 +1,3 @@
+[submodule "websocket/websocket-api/spring-boot-included-builds"]
+	path = websocket/websocket-api/spring-boot-included-builds
+	url = https://github.com/eliasmeireles/spring-boot-included-builds.git

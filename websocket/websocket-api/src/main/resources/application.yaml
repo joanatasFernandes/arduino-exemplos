@@ -1,0 +1,36 @@
+# Server
+server:
+  compression:
+    enabled: true
+  http2:
+    enabled: true
+  port: ${SERVER_PORT:8080}
+  servlet:
+    context-path: /api/
+
+spring:
+  profiles:
+    active: ${SPRING_PROFILE:dev}
+
+  security-util:
+    jwtExpirationTime: ${ENV_SP_JWT_EXPIRATION_TIME:7776000000}
+    securitySecret: ${ENV_SP_SECURITY_SECRET:arduino-api}
+    openUrl:
+      - "/swagger-resources/**"
+      - "/swagger-ui.html/**"
+      - "/swagger-config/**"
+      - "/source-handler/**"
+      - "/authorization"
+      - "/swagger-ui/**"
+      - "/favicon.ico/**"
+      - "/v3/api-docs/**"
+      - "/v3/api-docs"
+      - "/webjars/**"
+      - "/swagger/**"
+      - "/v1/lights"
+      - "/v1/listener"
+      - "/health/**"
+      - "/assets/**"
+      - "/error/**"
+      - "/csrf/**"
+      - "/docs/**"

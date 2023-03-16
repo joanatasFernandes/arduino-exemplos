@@ -1,0 +1,68 @@
+openapi: 3.0.1
+
+info:
+  title: Arduino Websocket Api
+  version: 0.0.1
+  description: Example to websocket for arduino
+  contact:
+    name: "Elias Meireles"
+    url: https://github.com/eliasmeireles
+    email: eliasmflilico@gmail.com
+
+tags:
+  - name: Users
+
+paths:
+  /lights/turn/{status}:
+    get:
+      tags:
+        - Lights
+      summary: Updated lights status
+      operationId: updatedLightsStatus
+      parameters:
+        - $ref: "#/components/parameters/authorizationParam"
+        - $ref: "#/components/parameters/status"
+        - $ref: "#/components/parameters/lightId"
+      responses:
+        200:
+          $ref: "#/components/responses/LightUpdateResponse"
+
+components:
+  parameters:
+    authorizationParam:
+      in: header
+      name: Authorization
+      required: true
+      schema:
+        type: string
+      description: A valid Jwt
+    status:
+      in: path
+      name: status
+      required: true
+      schema:
+        type: string
+        example: "ON or OFF"
+        description: "Only ON and OFF available"
+      description: The new lights status
+    lightId:
+      in: query
+      name: lightId
+      required: true
+      schema:
+        items:
+          type: string
+        example: "dafff6d2-5253-43d4-9e3e-49bf998c4e86"
+      description: "The target light status"
+
+  responses:
+    LightUpdateResponse:
+      description: Lights status successful updated
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Lights status successful updated
