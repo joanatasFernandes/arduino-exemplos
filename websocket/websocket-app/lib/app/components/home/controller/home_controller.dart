@@ -77,6 +77,7 @@ class HomeController extends BaseLoginController<HomeNavigator> {
 
   void onSuccess(AuthorizationResponse response) async {
     await _repository.updateAuthorization(response.jwt);
+    _connectionService.connect();
     screenNavigator.showSuccessful();
   }
 
