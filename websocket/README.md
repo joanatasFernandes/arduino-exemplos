@@ -13,7 +13,7 @@
 
 ## Configurando as conexões para testes na `protoboard`
 
-| Modulo                                                                | Protoboard                                            | 
+| Módulo                                                               | Protoboard                                            | 
 |-----------------------------------------------------------------------|-------------------------------------------------------|
 | ![esp8266_connection_01.png](..%2Fimages%2Fesp8266_connection_01.png) | ![protoboard_01.png](..%2Fimages%2Fprotoboard_01.png) |
 
