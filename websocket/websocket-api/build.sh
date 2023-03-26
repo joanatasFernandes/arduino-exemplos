@@ -15,9 +15,3 @@ git submodule update --recursive --remote
 ./gradlew bootJar
 
 cp ./build/libs/websocket-api-1.0.0.jar ./deploy/runner.jar
-
-cd ./deploy
-
-docker-compose build websocket-api
-
-rm -rf ~/.websocker_deploy/

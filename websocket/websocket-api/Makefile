@@ -13,7 +13,4 @@ test:
 
 clean:
 	./gradlew clean
-
-docker-deploy:
-	docker run -f -d --name websocket-api deploy_websocket-api:latest
-	docker logs -f websocket-api
+	
