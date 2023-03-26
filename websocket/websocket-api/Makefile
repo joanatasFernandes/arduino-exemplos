@@ -15,6 +15,5 @@ clean:
 	./gradlew clean
 
 docker-deploy:
-	docker rm -f websocket-api
-	docker run -d --name websocket-api deploy_websocket-api:latest
+	docker run -f -d --name websocket-api deploy_websocket-api:latest
 	docker logs -f websocket-api
