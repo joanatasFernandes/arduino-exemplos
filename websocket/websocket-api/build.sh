@@ -12,6 +12,6 @@ git submodule add --force https://github.com/eliasmeireles/spring-boot-included-
 git submodule update --recursive --init
 git submodule update --recursive --remote
 
-./gradlew bootJar
+./gradlew bootRun
 
-cp ./build/libs/websocket-api-1.0.0.jar ./deploy/runner.jar
+# cp ./build/libs/websocket-api-1.0.0.jar ./deploy/runner.jar
