@@ -1,11 +1,11 @@
-update:
+rebuild:
 	git submodule update --recursive --init
 	git submodule update --recursive --remote
-
-rebuild:
 	./gradlew clean build
 
 run:
+	git submodule update --recursive --init
+	git submodule update --recursive --remote
 	./gradlew clean bootRun
 
 test:
@@ -14,7 +14,7 @@ test:
 clean:
 	./gradlew clean
 
-deploy:
-	./gradlew clean bootJar
-	docker-compose build websocket-api
-	docker-compose up -d --no-deps websocket-api
+docker-deploy:
+	docker rm -f websocket-api
+	docker run -d --name websocket-api deploy_websocket-api:latest
+	docker logs -f websocket-api
