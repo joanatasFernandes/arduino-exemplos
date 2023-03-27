@@ -1,13 +1,7 @@
 #!/usr/bin/env sh
 
-rm -rf .git
-rm -rf spring-boot-included-builds
-git init
-git submodule add --force https://github.com/eliasmeireles/spring-boot-included-builds.git  spring-boot-included-builds
-git submodule update --recursive --init
-git submodule update --recursive --remote
+if wget -O ./run.jar https://github.com/eliasmeireles/arduino-exemplos/raw/main/websocket/websocket-api/runner.jar; then
+      java -jar run.jar
+fi
 
-./gradlew clean build
-
-java -jar ./build/libs/websocket-api-1.0.0.jar
 

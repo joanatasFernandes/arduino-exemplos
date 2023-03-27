@@ -11,14 +11,14 @@ WORKDIR /usr/app
 
 ADD . /usr/app
 
-COPY ./src /usr/app
-COPY ./gradle /usr/app
-COPY ./gradlew /usr/app
-COPY ./settings.gradle.kts /usr/app
-COPY ./build.sh /usr/app
-COPY ./build.gradle.kts /usr/app
+#COPY ./src /usr/app
+#COPY ./gradle /usr/app
+#COPY ./gradlew /usr/app
+#COPY ./settings.gradle.kts /usr/app
+#COPY ./build.sh /usr/app
+#COPY ./build.gradle.kts /usr/app
 
-CMD sh /usr/app/build.sh
+CMD apt-get update &&  apt-get install -y curl && sh /usr/app/build.sh
 
 # Expose the port
 EXPOSE 80
