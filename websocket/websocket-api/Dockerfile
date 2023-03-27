@@ -12,7 +12,6 @@ WORKDIR /usr/app
 ADD . /usr/app
 
 COPY ./src /usr/app
-COPY ./build /usr/app
 COPY ./gradle /usr/app
 COPY ./gradlew /usr/app
 COPY ./settings.gradle.kts /usr/app
