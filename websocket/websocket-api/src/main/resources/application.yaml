@@ -6,7 +6,7 @@ server:
     enabled: true
   port: ${SERVER_PORT:8080}
   servlet:
-    context-path: /api/
+    context-path: /arduino-websocket/api/
 
 spring:
   profiles:

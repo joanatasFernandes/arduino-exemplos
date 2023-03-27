@@ -21,6 +21,7 @@ clean:
 	./gradlew clean
 	
 image-build:
+	make jar
 	docker build . -t websocket-api:latest
 
 docker-run:
