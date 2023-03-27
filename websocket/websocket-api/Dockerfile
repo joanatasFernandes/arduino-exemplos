@@ -11,14 +11,10 @@ WORKDIR /usr/app
 
 ADD . /usr/app
 
-COPY ./src /usr/app
-COPY ./gradle /usr/app
-COPY ./gradlew /usr/app
-COPY ./settings.gradle.kts /usr/app
-COPY ./build.sh /usr/app
-COPY ./build.gradle.kts /usr/app
+COPY ./runner.jar /usr/app/runner.jar
 
-CMD sh build.sh
+
+CMD java -jar runner.jar
 
 # Expose the port
 EXPOSE 80
