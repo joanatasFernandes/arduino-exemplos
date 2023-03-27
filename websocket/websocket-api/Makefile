@@ -14,3 +14,8 @@ test:
 clean:
 	./gradlew clean
 	
+image-build:
+	docker build . -t websocket-api:latest
+
+docker-run:
+	sh ./deploy.sh
