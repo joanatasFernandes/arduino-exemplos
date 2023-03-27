@@ -14,7 +14,7 @@ ADD . /usr/app
 COPY ./runner.jar /usr/app/runner.jar
 
 
-CMD java -jar runner.jar
+CMD java -jar /usr/app/runner.jar
 
 # Expose the port
 EXPOSE 80
