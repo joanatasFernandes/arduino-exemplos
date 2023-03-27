@@ -11,9 +11,11 @@ WORKDIR /usr/app
 
 ADD . /usr/app
 
-COPY ./runner.jar /usr/app/runner.jar
-
-CMD java -jar /usr/app/runner.jar
+COPY ./railway-deploy.sh /usr/app/railway-deploy.sh
+#COPY ./runner.jar /usr/app/runner.jar
+#
+#CMD java -jar /usr/app/runner.jar
+CMD sh /usr/app/railway-deploy.sh
 
 # Expose the port
 EXPOSE 80
