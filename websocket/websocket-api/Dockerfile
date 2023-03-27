@@ -2,16 +2,9 @@ FROM openjdk:11.0.2-jdk
 
 MAINTAINER <eliasmflilico@gmail.com>
 
-ENV DEBIAN_FRONTEND noninteractive
-ENV TZ America/Sao_Paulo
-ENV SERVER_PORT=80
+ADD ./build.sh build.sh
 
 RUN mkdir -p /usr/app
 
-WORKDIR /usr/app
+ENTRYPOINT ["sh", "build.sh"]
 
-ADD . /usr/app
-
-CMD sh /usr/app/build.sh
-
-EXPOSE 80
