@@ -5,17 +5,21 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV TZ America/Sao_Paulo
 ENV SERVER_PORT=80
 
-RUN mkdir -p /usr/app
+ADD ./runner.jar runner.jar
 
-WORKDIR /usr/app
+ENTRYPOINT ["java", "-jar", "runner.jar"]
 
-ADD . /usr/app
-
-COPY ./railway-deploy.sh /usr/app/railway-deploy.sh
-#COPY ./runner.jar /usr/app/runner.jar
+#RUN mkdir -p /usr/app
 #
-#CMD java -jar /usr/app/runner.jar
-CMD sh /usr/app/railway-deploy.sh
+#WORKDIR /usr/app
+#
+#ADD . /usr/app
+#
+#COPY ./railway-deploy.sh /usr/app/railway-deploy.sh
+##COPY ./runner.jar /usr/app/runner.jar
+##
+##CMD java -jar /usr/app/runner.jar
+#CMD sh /usr/app/railway-deploy.sh
 
 # Expose the port
 EXPOSE 80
