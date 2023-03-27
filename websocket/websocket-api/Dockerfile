@@ -1,25 +1,24 @@
-FROM openjdk:11.0.2-jdk
+FROM gradle:jdk11
 MAINTAINER <eliasmflilico@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV TZ America/Sao_Paulo
 ENV SERVER_PORT=80
 
-ADD ./runner.jar runner.jar
+RUN mkdir -p /usr/app
 
-ENTRYPOINT ["java", "-jar", "runner.jar"]
+WORKDIR /usr/app
 
-#RUN mkdir -p /usr/app
-#
-#WORKDIR /usr/app
-#
-#ADD . /usr/app
-#
-#COPY ./railway-deploy.sh /usr/app/railway-deploy.sh
-##COPY ./runner.jar /usr/app/runner.jar
-##
-##CMD java -jar /usr/app/runner.jar
-#CMD sh /usr/app/railway-deploy.sh
+ADD . /usr/app
+
+COPY ./src /usr/app
+COPY ./gradle /usr/app
+COPY ./gradlew /usr/app
+COPY ./settings.gradle.kts /usr/app
+COPY ./build.sh /usr/app
+COPY ./build.gradle.kts /usr/app
+
+CMD sh /usr/app/build.sh
 
 # Expose the port
 EXPOSE 80
