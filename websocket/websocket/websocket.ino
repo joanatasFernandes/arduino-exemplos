@@ -4,8 +4,8 @@
 
 const char *ssid = "Rede wifi";
 const char *password = "Senha do wifi";
-const char *websockets_server_host = "Ip da máquina onde está rodando o back end";
-const uint16_t websockets_server_port = 8080;
+const char *websockets_server_host = "www.app-workspace.com";
+const uint16_t websockets_server_port = 80;
 
 using namespace websockets;
 
@@ -39,7 +39,7 @@ void acender() {
 
 void connectToServer() {
 
-    bool connected = client.connect(websockets_server_host, websockets_server_port, "/api/v1/lights");
+    bool connected = client.connect(websockets_server_host, websockets_server_port, "/arduino-websocket/api/v1/lights");
 
     if (connected) {
         Serial.println("Connected to server");

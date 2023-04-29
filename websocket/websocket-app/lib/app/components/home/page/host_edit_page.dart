@@ -28,11 +28,6 @@ class HostEditPage extends StatelessWidget {
                 label: 'Host',
                 textInputAction: TextInputAction.next,
               ),
-              TextEditDecorated(
-                controller: controller.portController,
-                label: 'Porta',
-                keyboardType: TextInputType.number,
-              ),
               DefaultRiseButton(
                 enable: true,
                 onTap: controller.setCustomHost,

@@ -18,7 +18,6 @@ class HomeController extends BaseLoginController<HomeNavigator> {
   final AuthorizationRepository _repository;
 
   final hostTextController = TextEditingController();
-  final portController = TextEditingController();
   final apiDomainUrl = BehaviorSubject<String>.seeded('');
 
   HomeController(
@@ -34,9 +33,8 @@ class HomeController extends BaseLoginController<HomeNavigator> {
   void init() {
     super.init();
     checkIfLoggedIn();
-    hostTextController.text = 'http://192.168.2.19';
-    portController.text = '8080';
-    apiDomainUrl.value = apiDomain.baseApiUrl;
+    hostTextController.text = 'http://139.144.110.105/arduino-websocket/api/';
+    apiDomainUrl.value = apiDomain.baseApiUrl();
   }
 
   void changeLightStatus(LightMessage message) {
@@ -108,10 +106,8 @@ class HomeController extends BaseLoginController<HomeNavigator> {
     if (hostTextController.text.trim().isNotEmpty) {
       apiDomain.host = hostTextController.text;
     }
-    if (portController.text.trim().isNotEmpty) {
-      apiDomain.port = int.parse(portController.text);
-    }
-    apiDomainUrl.value = apiDomain.baseApiUrl;
+
+    apiDomainUrl.value = apiDomain.baseApiUrl();
     screenNavigator.canPopPage();
   }
 }

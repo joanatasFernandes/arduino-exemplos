@@ -24,7 +24,7 @@ class ConnectionService {
     _shouldReconnect = true;
 
     final apiHost =
-        apiDomain.baseApiUrl.replaceAll("https", "ws").replaceAll("http", "ws");
+        apiDomain.baseApiUrl().replaceAll("https", "ws").replaceAll("http", "ws");
     channel = WebSocketChannel.connect(Uri.parse("${apiHost}v1/listener"));
 
     channel.stream.listen(
