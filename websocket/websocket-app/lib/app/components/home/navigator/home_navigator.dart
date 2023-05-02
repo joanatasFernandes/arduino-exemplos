@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:screen_view/screen_view.dart';
 import 'package:websocket_app/app/components/home/page/home_page.dart';
-import 'package:websocket_app/app/components/home/page/host_edit_page.dart';
 import 'package:websocket_app/app/components/home/page/login_page.dart';
 import 'package:websocket_app/app/components/home/page/splash_page.dart';
 
@@ -17,9 +16,6 @@ class HomeNavigator extends BaseScreenNavigator {
       case splashPath:
         currentPage = splashPath;
         return SplashPage(controller: controller.cast());
-      case "/host-edit":
-        currentPage = "/host-edit";
-        return HostEditPage(controller: controller.cast());
       case successfulPath:
         currentPage = successfulPath;
         return alertBuild(

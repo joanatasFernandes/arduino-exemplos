@@ -22,7 +22,7 @@ make run
 
 ```shell
 curl --request POST \
-  --url http://localhost:8080/arduino-websocket/api/authorization \
+  --url https://app-workspace.com/arduino-websocket/api/authorization \
   --header 'accept: application/json' \
   --header 'content-type: application/json' \
   --data '{"username":"arduino@websocket.com", "password": "123456"}'

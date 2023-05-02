@@ -1,0 +1,10 @@
+generated
+linux
+macos
+test
+windows
+.idea
+.dart_tool
+android
+ios
+build
