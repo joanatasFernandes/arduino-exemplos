@@ -1,0 +1,11 @@
+version: '3'
+services:
+  arduino-websocket:
+    build:
+      context: .
+    container_name: arduino-websocket-app
+    image: arduino-websocket-app
+    restart: always
+    ports:
+      - "127.0.0.1:8082:80"
+      - "172.17.0.1:8082:80"
