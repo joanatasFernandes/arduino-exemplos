@@ -1,38 +1,41 @@
+targetBuild ?= dev
+
 clean:
 	flutter clean
 
 libs-update:
 	flutter pub upgrade --major-versions
 
-apk:
+build-run:
 	flutter clean
 	flutter pub get
 	flutter packages run build_runner build --delete-conflicting-outputs
-	flutter build apk --dart-define=targetBuild=dev --split-per-abi --target-platform android-arm,android-arm64,android-x64
-	open build/app/outputs/flutter-apk/
 
-web-app:
-	flutter clean
-	flutter pub get
-	flutter packages run build_runner build --delete-conflicting-outputs
-	flutter build web --dart-define=targetBuild=dev
-
-docker-web:
-	flutter --version
+update:
 	sh runner.sh i18n_app
 	sh runner.sh app_database
 	sh runner.sh app_domain
 	sh runner.sh app_websocket
 	sh runner.sh dart_net_work
 	sh runner.sh screen_view
-	make web-app
+	make build-run
 
-text:
-	flutter pub run i18n_json
+apk:
+	make build-run
+	flutter build apk --dart-define=targetBuild=$(targetBuild) --split-per-abi --target-platform android-arm,android-arm64,android-x64
 
-run:
-	flutter pub get
-	flutter packages run build_runner build --delete-conflicting-outputs
+web-build:
+	make update
+	flutter build web --dart-define=targetBuild=$(targetBuild)  --base-href '/'
+
+dev-deploy:
+	sh dev-deploy.sh
+
+deploy:
+	sh deploy.sh
+
+docker-dev-apk:
+	sh build-dev-apk.sh
 
 run-watch:
 	flutter pub get

@@ -10,7 +10,7 @@ COPY . /app/
 WORKDIR /app/
 
 RUN rm -rf build
-RUN make web-build targetBuild=prod
+RUN make web-build
 
 FROM nginx:1.21.0-alpine as production
 

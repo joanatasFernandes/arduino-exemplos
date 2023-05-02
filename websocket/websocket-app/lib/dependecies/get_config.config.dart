@@ -18,9 +18,11 @@ import '../app/components/home/navigator/home_navigator.dart' as _i9;
 import '../app/listener/light_message_listener_impl.dart' as _i11;
 import '../integration/domain/app_domain.dart' as _i4;
 import '../integration/domain/client_provider.dart' as _i5;
-import '../integration/domain/handler/client_request_handler_impl.dart'
-    as _i7; // ignore_for_file: unnecessary_lambdas
+import '../integration/domain/handler/client_request_handler_impl.dart' as _i7;
 
+const String _prod = 'prod';
+const String _dev = 'dev';
+// ignore_for_file: unnecessary_lambdas
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
 _i1.GetIt $initRootProjectIt(
@@ -33,7 +35,14 @@ _i1.GetIt $initRootProjectIt(
     environment,
     environmentFilter,
   );
-  gh.factory<_i3.ApiDomain>(() => _i4.AppDomain());
+  gh.factory<_i3.ApiDomain>(
+    () => _i4.AppDomain(),
+    registerFor: {_prod},
+  );
+  gh.factory<_i3.ApiDomain>(
+    () => _i4.AppDomainDev(),
+    registerFor: {_dev},
+  );
   gh.singleton<_i3.ClientProvider>(_i5.ClientProviderImpl(
     get<_i3.ApiDomain>(),
     get<_i6.AuthorizationRepository>(),

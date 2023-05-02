@@ -1,0 +1,11 @@
+version: '3'
+services:
+  arduino-websocket:
+    build:
+      context: .
+      dockerfile: DockerfileApkDev
+    container_name: arduino-websocket-apk
+    image: arduino-websocket-apk
+    restart: always
+    volumes:
+      - "~/arduino-websocket/:/var/flutter-apk/"
