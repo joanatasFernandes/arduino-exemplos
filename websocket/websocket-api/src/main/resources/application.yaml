@@ -17,6 +17,9 @@ spring:
     securitySecret: ${ENV_SP_SECURITY_SECRET:arduino-api}
     allowedOrigins:
       - "http://172.17.0.1"
+      - "http://arduino.dev.local.net"
+      - "http://localhost:3150"
+      - "https://arduino.app-workspace.com"
     openUrl:
       - "/swagger-resources/**"
       - "/swagger-ui.html/**"
