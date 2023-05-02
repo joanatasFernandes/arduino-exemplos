@@ -34,12 +34,8 @@ class HomeController extends BaseLoginController<HomeNavigator> {
     _lightClient.request(
         status: message.status == "ON" ? "off" : "on",
         lightsId: [message.lightId],
-        onRequestSuccess: (v) {
-          print(v);
-        },
-        onRequestError: (e) {
-          print(e);
-        });
+        onRequestSuccess: (v) {},
+        onRequestError: (e) {});
   }
 
   void checkIfLoggedIn() async {

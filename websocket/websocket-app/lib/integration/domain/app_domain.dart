@@ -13,6 +13,5 @@ class AppDomain extends ApiDomain {
 @Injectable(as: ApiDomain, env: [Env.dev])
 class AppDomainDev extends ApiDomain {
   @override
-  String baseApiUrl() =>
-      host ?? 'http://dev.local.net:8181/arduino-websocket/api/';
+  String baseApiUrl() => host ?? 'http://dev.local.net/arduino-websocket/api/';
 }

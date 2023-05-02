@@ -25,8 +25,9 @@ class ConnectionService {
 
     final apiHost = apiDomain
         .baseApiUrl()
-        .replaceAll("https", "wss")
-        .replaceAll("http", "ws");
+        .replaceAll("http://", "ws://")
+        .replaceAll("https://", "wss://");
+
     channel = WebSocketChannel.connect(Uri.parse("${apiHost}v1/listener"));
 
     channel.stream.listen(
