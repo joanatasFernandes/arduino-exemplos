@@ -14,7 +14,7 @@ class ClientProvider {
           onResponse: responseInterceptor,
           onError: _onError),
     )
-    ..options.baseUrl = apiDomain.baseApiUrl
+    ..options.baseUrl = apiDomain.baseApiUrl()
     ..options.connectTimeout = 10000;
 
   void _onError(DioError error, ErrorInterceptorHandler handler) async {

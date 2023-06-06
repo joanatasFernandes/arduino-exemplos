@@ -9,9 +9,6 @@ info:
     url: https://github.com/eliasmeireles
     email: eliasmflilico@gmail.com
 
-tags:
-  - name: Users
-
 paths:
   /lights/turn/{status}:
     get:
@@ -26,6 +23,14 @@ paths:
       responses:
         200:
           $ref: "#/components/responses/LightUpdateResponse"
+  /health:
+    get:
+      tags:
+        - Health
+      operationId: healthCheck
+      responses:
+        200:
+          $ref: "#/components/responses/HealthCheckResponse"
 
 components:
   parameters:
@@ -66,3 +71,13 @@ components:
               message:
                 type: string
                 example: Lights status successful updated
+    HealthCheckResponse:
+      description: Health check
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Application is running

@@ -1,0 +1,15 @@
+FROM cirrusci/flutter:latest
+
+RUN apt-get update
+RUN apt-get install -y make
+RUN apt-get clean
+
+RUN mkdir /app/
+COPY . /app/
+WORKDIR /app/
+
+RUN rm -rf build
+
+RUN make test-log
+
+RUN cat /var/flutter-apk/test.log

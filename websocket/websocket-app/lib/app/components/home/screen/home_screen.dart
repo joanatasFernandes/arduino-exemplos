@@ -25,34 +25,7 @@ class _HomeScreenState extends BaseScreenState<HomeController> {
           LogoutButton(
             controller: controller,
           ),
-          _LogoutButton(
-            homeController: controller,
-          )
         ],
       );
 }
 
-class _LogoutButton extends BaseAppBarButton {
-  final HomeController homeController;
-
-  const _LogoutButton({
-    Key? key,
-    required this.homeController,
-  }) : super(key: key, controller: homeController);
-
-  @override
-  Widget child(BuildContext context) {
-    return StreamingWidget<bool>(
-      stream: controller.isLoggedIn,
-      builder: (isLoggedIn) {
-        return Visibility(
-          visible: !isLoggedIn,
-          child: IconButton(
-            onPressed: homeController.hostEdit,
-            icon: const Icon(Icons.edit),
-          ),
-        );
-      },
-    );
-  }
-}

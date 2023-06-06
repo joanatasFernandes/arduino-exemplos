@@ -18,32 +18,34 @@ const long INTERVAL = 6000;
 int sensor = 0;  // Pino input ligado ao sensor PIR
 int pinoLuz = 1; // Pino output para ligar a luz
 
-int mensagemMonitoramentoEnviada = 0;
-int estadoDasLuzes = 1;
-int apagamentoManual = 0;
-int acendimentoManul = 0;
-
-int contador = 0;
+bool lastState = false;
 
 void apagar() {
+    lastState = false;
     digitalWrite(LED, 1);
     digitalWrite(pinoLuz, 1);
-    estadoDasLuzes = 0;
 }
 
 void acender() {
+    lastState = true;
     digitalWrite(LED, 0);
     digitalWrite(pinoLuz, 0);
-    estadoDasLuzes = 1;
 }
 
 void connectToServer() {
 
-    bool connected = client.connect(websockets_server_host, websockets_server_port, "/api/v1/lights");
+    bool connected = client.connect("wss://app-workspace.com/arduino-websocket/api/v1/lights");
 
     if (connected) {
         Serial.println("Connected to server");
-        sendMenssage("OFF", true);
+        if(lastState) {
+          sendMenssage("ON", false);
+          acender();
+        } else {
+          sendMenssage("OFF", true);
+          apagar();
+        }
+        return;
     } else {
         Serial.println("Connection failed");
     }

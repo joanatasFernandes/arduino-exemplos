@@ -1,9 +1,10 @@
 import 'package:dart_net_work/dart_net_work.dart';
 import 'package:screen_view/screen_view.dart';
 
-@Injectable(as: ApiDomain)
-class AppDomain extends ApiDomain {
+import '../../dependecies/get_config.dart';
+
+@Injectable(as: ApiDomain, env: [Env.dev])
+class AppDomainDev extends ApiDomain {
   @override
-  String get baseApiUrl =>
-      "${host ?? 'http://192.168.138.170'}:${port ?? 8080}/api/";
+  String baseApiUrl() => host ?? 'http://dev.local.net/arduino-websocket/api/';
 }

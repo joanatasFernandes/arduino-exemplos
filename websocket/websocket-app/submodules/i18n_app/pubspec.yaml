@@ -22,5 +22,4 @@ dev_dependencies:
   flutter_lints: ^2.0.1
   injectable_generator:
   build_runner:
-  i18n_json:
-    git: https://github.com/gnudles/dart_i18n_generator
+  i18n_json: ^0.9.0

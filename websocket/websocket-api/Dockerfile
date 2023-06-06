@@ -1,21 +1,13 @@
 FROM openjdk:11.0.2-jdk
-MAINTAINER Construo Dev Team <eliasmflilico@gmail.com>
 
-ENV DEBIAN_FRONTEND noninteractive
-ENV TZ America/Sao_Paulo
-ENV SERVER_PORT=8080
+MAINTAINER <eliasmflilico@gmail.com>
 
-RUN mkdir -p /usr/app
+COPY ./build/libs/websocket-api-1.0.0.jar /runner.jar
 
-WORKDIR /usr/app
+ENV SERVER_PORT 8080
 
-ADD . /usr/app
+ENTRYPOINT ["java", "-jar", "runner.jar"]
 
-COPY ./build/libs/websocket-api-1.0.0.jar /usr/app/websocket-api.jar
+EXPOSE $SERVER_PORT
 
-#RUN mvn clean install -DskipTests
 
-CMD java -jar /usr/app/websocket-api.jar
-
-# Expose the port
-EXPOSE 8080

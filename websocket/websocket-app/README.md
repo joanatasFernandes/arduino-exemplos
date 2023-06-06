@@ -15,3 +15,5 @@ Caso queria apenas testar a conexão com o backend, já existe alguns apks pront
 - Para alterar o ip da máquina de onde está rodando o backend sem gerar um novo apk, após abrir o app,
   você pode informar o ip clicando no menu superior a direita. 
 
+
+[Docker Flutter](https://github.com/cirruslabs/docker-images-flutter/pkgs/container/flutter)

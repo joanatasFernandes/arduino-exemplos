@@ -2,8 +2,6 @@ import 'package:app_database/app_database.dart';
 import 'package:app_domain/app_domain.dart';
 import 'package:app_websocket/app_websocket.dart';
 import 'package:dart_net_work/dart_net_work.dart';
-import 'package:flutter/material.dart';
-import 'package:rxdart/rxdart.dart';
 import 'package:screen_view/screen_view.dart';
 import 'package:websocket_app/app/components/home/navigator/home_navigator.dart';
 import 'package:websocket_app/utils/delayed_future.dart';
@@ -16,10 +14,6 @@ class HomeController extends BaseLoginController<HomeNavigator> {
   final LoginClient _loginClient;
   final LightClient _lightClient;
   final AuthorizationRepository _repository;
-
-  final hostTextController = TextEditingController();
-  final portController = TextEditingController();
-  final apiDomainUrl = BehaviorSubject<String>.seeded('');
 
   HomeController(
     this.apiDomain,
@@ -34,9 +28,6 @@ class HomeController extends BaseLoginController<HomeNavigator> {
   void init() {
     super.init();
     checkIfLoggedIn();
-    hostTextController.text = 'http://192.168.2.19';
-    portController.text = '8080';
-    apiDomainUrl.value = apiDomain.baseApiUrl;
   }
 
   void changeLightStatus(LightMessage message) {
@@ -102,16 +93,5 @@ class HomeController extends BaseLoginController<HomeNavigator> {
   @override
   Future<bool> canPopPage() async {
     return !screenNavigator.canPopPage() && !screenNavigator.isHomeState();
-  }
-
-  setCustomHost() {
-    if (hostTextController.text.trim().isNotEmpty) {
-      apiDomain.host = hostTextController.text;
-    }
-    if (portController.text.trim().isNotEmpty) {
-      apiDomain.port = int.parse(portController.text);
-    }
-    apiDomainUrl.value = apiDomain.baseApiUrl;
-    screenNavigator.canPopPage();
   }
 }

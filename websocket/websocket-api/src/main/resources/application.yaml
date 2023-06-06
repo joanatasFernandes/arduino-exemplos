@@ -6,7 +6,7 @@ server:
     enabled: true
   port: ${SERVER_PORT:8080}
   servlet:
-    context-path: /api/
+    context-path: /arduino-websocket/api/
 
 spring:
   profiles:
@@ -15,6 +15,11 @@ spring:
   security-util:
     jwtExpirationTime: ${ENV_SP_JWT_EXPIRATION_TIME:7776000000}
     securitySecret: ${ENV_SP_SECURITY_SECRET:arduino-api}
+    allowedOrigins:
+      - "http://172.17.0.1"
+      - "http://smart.dev.local.net"
+      - "http://localhost:3150"
+      - "https://smart.app-workspace.com"
     openUrl:
       - "/swagger-resources/**"
       - "/swagger-ui.html/**"

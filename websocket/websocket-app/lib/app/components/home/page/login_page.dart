@@ -20,10 +20,6 @@ class LoginPage extends StatelessWidget {
             shrinkWrap: true,
             physics: const BouncingScrollPhysics(),
             children: [
-              StreamingWidget<String>(
-                stream: controller.apiDomainUrl,
-                builder: (host) => Text('HOST: [$host]'),
-              ),
               TextEditDecorated(
                 controller: controller.emailTextController,
                 keyboardType: TextInputType.emailAddress,
