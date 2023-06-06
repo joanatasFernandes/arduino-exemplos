@@ -1,0 +1,17 @@
+namespace Teste{
+    public class Program{
+        public static void Main(string[] args){
+
+            Dictionary<int, string> dictionary = new Dictionary<int, string>();
+        }
+    }dictionary map <list arry list> list.
+while qtd < 3
+    switch (valor)
+    case 1 :
+    valor >= 20 =valor * 0.40
+    case 2:
+    valor >= 40 =valor * 0,20
+    default 
+    return map.
+do qtd
+}

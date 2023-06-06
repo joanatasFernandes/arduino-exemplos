@@ -2,9 +2,9 @@
 #include <ArduinoWebsockets.h>
 #include <ESP8266WiFi.h>
 
-const char *ssid = "Rede wifi";
-const char *password = "Senha do wifi";
-const char *websockets_server_host = "Ip da máquina onde está rodando o back end";
+const char *ssid = "jojousk";
+const char *password = "12345678";
+const char *websockets_server_host = "192.168.43.170";
 const uint16_t websockets_server_port = 8080;
 
 using namespace websockets;

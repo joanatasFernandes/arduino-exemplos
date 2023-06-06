@@ -5,5 +5,5 @@ import 'package:screen_view/screen_view.dart';
 class AppDomain extends ApiDomain {
   @override
   String get baseApiUrl =>
-      "${host ?? 'http://192.168.2.19'}:${port ?? 8080}/api/";
+      "${host ?? 'http://192.168.138.170'}:${port ?? 8080}/api/";
 }
